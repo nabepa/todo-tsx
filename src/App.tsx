@@ -80,7 +80,32 @@ function App() {
     }
   };
 
-  // const addTask:AddTask = () => {};
+  const addTask: AddTask = (columnId: ColumnId, task: Task) => {
+    setTasksData((prevTasksData) => {
+      const newTasks: Tasks = { ...prevTasksData.tasks, [task.id]: task };
+
+      const newTaskIds: TaskId[] = [...prevTasksData.columns[columnId].taskIds];
+      newTaskIds.push(task.id);
+
+      const newColumn: Column = {
+        ...prevTasksData.columns[columnId],
+        taskIds: newTaskIds,
+      };
+
+      const newColumns: Columns = {
+        ...prevTasksData.columns,
+        [columnId]: newColumn,
+      };
+
+      const newTaskDatas: TasksData = {
+        ...prevTasksData,
+        tasks: newTasks,
+        columns: newColumns,
+      };
+
+      return newTaskDatas;
+    });
+  };
 
   return (
     <Container>
@@ -91,7 +116,14 @@ function App() {
             (taskId: TaskId) => tasksData.tasks[taskId]
           );
 
-          return <TaskColumn key={columnId} column={column} tasks={tasks} />;
+          return (
+            <TaskColumn
+              key={columnId}
+              column={column}
+              tasks={tasks}
+              addTask={addTask}
+            />
+          );
         })}
       </DragDropContext>
     </Container>

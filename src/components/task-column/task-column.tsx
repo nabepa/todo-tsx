@@ -1,6 +1,7 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import AddForm from '../add-form/add-form';
 import TaskItem from '../task-item/task-item';
 
 const Container = styled.div``;
@@ -18,9 +19,10 @@ type Props = {
   key: string;
   column: Column;
   tasks: Task[];
+  addTask: AddTask;
 };
 
-const TaskColumn: React.FC<Props> = ({ column, tasks }) => {
+const TaskColumn: React.FC<Props> = ({ column, tasks, addTask }) => {
   return (
     <Container>
       <Title>{column.title}</Title>
@@ -34,6 +36,7 @@ const TaskColumn: React.FC<Props> = ({ column, tasks }) => {
           </TaskList>
         )}
       </Droppable>
+      <AddForm columnId={column.id} addTask={addTask} />
     </Container>
   );
 };
