@@ -27,7 +27,7 @@ You can try this app, click below badge!
 - [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) Todo list の drag&drop
 
 - [styled-components]()
-- [Google Fonts](https://fonts.google.com/icons) 各種アイコンのリソース
+- [@material-ui/icons](https://material-ui.com/getting-started/installation/s)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

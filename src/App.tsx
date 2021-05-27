@@ -107,6 +107,38 @@ function App() {
     });
   };
 
+  const removeTask: RemoveTask = (
+    columnId: ColumnId,
+    task: Task,
+    index: number
+  ) => {
+    setTasksData((prevTasksData) => {
+      const newTasks: Tasks = { ...prevTasksData.tasks };
+      delete newTasks[task.id];
+
+      const newTaskIds: TaskId[] = [...prevTasksData.columns[columnId].taskIds];
+      newTaskIds.splice(index, 1);
+
+      const newColumn: Column = {
+        ...prevTasksData.columns[columnId],
+        taskIds: newTaskIds,
+      };
+
+      const newColumns: Columns = {
+        ...prevTasksData.columns,
+        [columnId]: newColumn,
+      };
+
+      const newTaskDatas: TasksData = {
+        ...prevTasksData,
+        tasks: newTasks,
+        columns: newColumns,
+      };
+
+      return newTaskDatas;
+    });
+  };
+
   return (
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -122,6 +154,7 @@ function App() {
               column={column}
               tasks={tasks}
               addTask={addTask}
+              removeTask={removeTask}
             />
           );
         })}

@@ -20,9 +20,15 @@ type Props = {
   column: Column;
   tasks: Task[];
   addTask: AddTask;
+  removeTask: RemoveTask;
 };
 
-const TaskColumn: React.FC<Props> = ({ column, tasks, addTask }) => {
+const TaskColumn: React.FC<Props> = ({
+  column,
+  tasks,
+  addTask,
+  removeTask,
+}) => {
   return (
     <Container>
       <Title>{column.title}</Title>
@@ -30,7 +36,13 @@ const TaskColumn: React.FC<Props> = ({ column, tasks, addTask }) => {
         {(provided) => (
           <TaskList ref={provided.innerRef} {...provided.droppableProps}>
             {tasks.map((task, index) => (
-              <TaskItem key={task.id} task={task} index={index} />
+              <TaskItem
+                key={task.id}
+                columnId={column.id}
+                task={task}
+                index={index}
+                removeTask={removeTask}
+              />
             ))}
             {provided.placeholder}
           </TaskList>

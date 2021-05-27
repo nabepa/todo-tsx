@@ -1,17 +1,22 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 const Item = styled.li``;
 
 type Props = {
   key: string;
+  columnId: ColumnId;
   task: Task;
   index: number;
-  // toggleTask: ToggleTask;
+  removeTask: RemoveTask;
 };
 
-const TaskItem: React.FC<Props> = ({ task, index }) => {
+const TaskItem: React.FC<Props> = ({ columnId, task, index, removeTask }) => {
+  const onClick = () => {
+    removeTask(columnId, task, index);
+  };
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided) => (
@@ -21,31 +26,11 @@ const TaskItem: React.FC<Props> = ({ task, index }) => {
           {...provided.dragHandleProps}
         >
           {task.name}
+          <DeleteOutlinedIcon onClick={onClick} />
         </Item>
       )}
     </Draggable>
   );
 };
-
-// const TaskItem: React.FC<Props> = ({ task }) => {
-//   return (
-//     <li>
-//         style={{ textDecoration: task.complete ? 'line-through' : undefined }}
-//       >
-//         <input
-//           type='checkbox'
-//           checked={task.complete}
-//           // onClick={() => {
-//           //   toggleTask(task);
-//           // }}
-//           onChange={() => {
-//             toggleTask(task);
-//           }}
-//         />
-//         {''}
-//         {task.text}
-//     </li>
-//   );
-// };
 
 export default TaskItem;
