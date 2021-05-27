@@ -45,6 +45,30 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Library
 
-- type も
+### Record
+
+```typescript
+type TaskId = string;
+type Task = {
+  id: TaskId;
+  name: string;
+};
+type Tasks = {
+  [id: TaskId]: Task;
+};
+```
+
+上のコードでは次のエラー発生
+
+```shell
+Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Tasks'.
+  No index signature with a parameter of type 'string' was found on type 'Tasks'.
+```
+
+utility type の Record を利用
+
+```typescript
+type Tasks = Record<TaskId, Task>;
+```
 
 ## 🐛 改善

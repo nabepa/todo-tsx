@@ -1,27 +1,29 @@
+type TaskId = string;
+
 type Task = {
-  id: string;
+  id: TaskId;
   name: string;
 };
 
-type Tasks = {
-  [id: string]: Task;
-};
+type Tasks = Record<TaskId, Task>;
+
+type ColumnId = string;
 
 type Column = {
-  id: string;
+  id: ColumnId;
   title: string;
-  taskIds: string[];
+  taskIds: TaskId[];
 };
 
-type Columns = {
-  [id: string]: Column;
-};
+type Columns = Record<ColumnId, Column>;
 
 type TasksData = {
   tasks: Tasks;
   columns: Columns;
-  columnsOrder: string[];
+  columnsOrder: ColumnId[];
 };
+
+type AddTask = (columnId: ColumnId, task: Task) => void;
 
 // type ToggleTodo = (selectedTodo: Todo) => void;
 

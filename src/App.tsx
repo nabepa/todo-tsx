@@ -24,12 +24,12 @@ function App() {
       return;
     }
 
-    const startColumn = tasksData.columns[source.droppableId];
-    const finishColumn = tasksData.columns[destination.droppableId];
+    const startColumn: Column = tasksData.columns[source.droppableId];
+    const finishColumn: Column = tasksData.columns[destination.droppableId];
 
     if (startColumn === finishColumn) {
       setTasksData((prevTasksData) => {
-        const newTaskIds = [...startColumn.taskIds];
+        const newTaskIds: TaskId[] = [...startColumn.taskIds];
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
 
@@ -50,7 +50,7 @@ function App() {
       });
     } else {
       setTasksData((prevTasksData) => {
-        const startTasksIds = [...startColumn.taskIds];
+        const startTasksIds: TaskId[] = [...startColumn.taskIds];
         startTasksIds.splice(source.index, 1);
 
         const newStartColumn: Column = {
@@ -58,7 +58,7 @@ function App() {
           taskIds: startTasksIds,
         };
 
-        const finishTaskIds = [...finishColumn.taskIds];
+        const finishTaskIds: TaskId[] = [...finishColumn.taskIds];
         finishTaskIds.splice(destination.index, 0, draggableId);
 
         const newFinishColumn: Column = {
@@ -80,16 +80,16 @@ function App() {
     }
   };
 
-  // const addTask = () => {
-
-  // };
+  // const addTask:AddTask = () => {};
 
   return (
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>
-        {tasksData.columnsOrder.map((columnId) => {
+        {tasksData.columnsOrder.map((columnId: ColumnId) => {
           const column = tasksData.columns[columnId];
-          const tasks = column.taskIds.map((taskId) => tasksData.tasks[taskId]);
+          const tasks = column.taskIds.map(
+            (taskId: TaskId) => tasksData.tasks[taskId]
+          );
 
           return <TaskColumn key={columnId} column={column} tasks={tasks} />;
         })}
