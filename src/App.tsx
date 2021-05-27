@@ -7,6 +7,7 @@ import initialTasksData from './common/initial-task-data';
 
 const Container = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
 function App() {

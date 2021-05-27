@@ -1,9 +1,28 @@
 import React, { FormEvent, useRef } from 'react';
+import styled from 'styled-components';
 
 type Props = {
   columnId: ColumnId;
   addTask: AddTask;
 };
+
+const Form = styled.form`
+  width: 100%;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 900;
+  text-align: center;
+  border: 0;
+  outline: 0;
+  margin: 0.3rem 0;
+  &:focus::placeholder {
+    opacity: 0;
+  }
+`;
+
 const AddForm: React.FC<Props> = ({ columnId, addTask }) => {
   const formRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -21,9 +40,9 @@ const AddForm: React.FC<Props> = ({ columnId, addTask }) => {
   };
 
   return (
-    <form ref={formRef} onSubmit={onSubmit}>
-      <input ref={inputRef} type='text' placeholder='+' />
-    </form>
+    <Form ref={formRef} onSubmit={onSubmit}>
+      <Input ref={inputRef} type='text' placeholder='+' />
+    </Form>
   );
 };
 

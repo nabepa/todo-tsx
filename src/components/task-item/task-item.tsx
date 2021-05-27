@@ -3,7 +3,16 @@ import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
-const Item = styled.li``;
+const Item = styled.li`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: white;
+`;
 
 type Props = {
   key: string;
@@ -25,7 +34,7 @@ const TaskItem: React.FC<Props> = ({ columnId, task, index, removeTask }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          {task.name}
+          <p>{task.name}</p>
           <DeleteOutlinedIcon onClick={onClick} />
         </Item>
       )}

@@ -4,15 +4,28 @@ import styled from 'styled-components';
 import AddForm from '../add-form/add-form';
 import TaskItem from '../task-item/task-item';
 
-const Container = styled.div``;
+const Container = styled.div`
+  width: 30vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  border: 2px solid #000;
+`;
+
 const Title = styled.h2`
   padding: 0.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
 `;
+
 const TaskList = styled.ul`
-  margin: 1rem;
-  padding: 0;
-  background-color: wheat;
+  height: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem;
   list-style: none;
+  overflow-y: auto;
 `;
 
 type Props = {
