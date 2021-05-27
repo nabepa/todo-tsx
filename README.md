@@ -26,6 +26,7 @@ You can try this app, click below badge!
 
 - [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) Todo list の drag&drop
 
+- [styled-components]()
 - [Google Fonts](https://fonts.google.com/icons) 各種アイコンのリソース
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -41,5 +42,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - React も同じく ref があり，Class componet では createRef(), Hooks では useRef()
 - 状況に応じて適切な方を選択
 - [ 一緒に読むといい資料](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/)
+
+### Library
+
+- type も
 
 ## 🐛 改善
