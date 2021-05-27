@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# Todo List with TSX
+
+Read this in other languages: [한국어 🇰🇷](README.ko.md)
+
+You can try this app, click below badge!
+</br>
+<a href="https://stoic-shaw-001338.netlify.app/" target="_blank">![Netlify Status]()</a>
+
+## 🚀 開発背景
+
+- 初めて TypeScript で React を書く簡単な練習！
+- ついでに styled component も使ってみる
+
+## 🦄 使用言語とツール
+
+<p>
+    <img src="https://img.shields.io/badge/HTML-E34F26?style=flat&logo=HTML5&logoColor=white"/>&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white"/>&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white"/>&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=black"/>&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=Node.js&logoColor=white"/>&nbsp;&nbsp;
+    <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=flat&logo=Yarn&logoColor=white"/>&nbsp;&nbsp;
+ </p>
+
+## 📚 使用ライブラリとリソース
+
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) Todo list の drag&drop
+
+- [Google Fonts](https://fonts.google.com/icons) 各種アイコンのリソース
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 📖 Project で新しく勉強した事
 
-In the project directory, you can run:
+### Controlled Components と Unontrolled Components
 
-### `yarn start`
+- React で form を実装する方法は 2 つ: Controlled Component, Uncontrolled Component
+- [Controlled Components](https://reactjs.org/docs/forms.html#gatsby-focus-wrapper)は，入力と同時に値が更新
+- [Uncontrolled Components](https://reactjs.org/docs/uncontrolled-components.html)は，必要な際に入力値を持ってくるように直接指定
+  - 既存の HTML form inputs で ref を利用したように
+  - React も同じく ref があり，Class componet では createRef(), Hooks では useRef()
+- 状況に応じて適切な方を選択
+- [ 一緒に読むといい資料](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🐛 改善
