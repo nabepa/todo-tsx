@@ -3,45 +3,16 @@ import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import '@atlaskit/css-reset';
 import styled from 'styled-components';
 import TaskColumn from './components/task-column/task-column';
+import initialTasksData from './common/initial-task-data';
 
 const Container = styled.div`
   display: flex;
 `;
 
-const initialTasksData: TasksData = {
-  tasks: {
-    'task-1': { id: 'task-1', name: 'Study TypeScript', state: 'done' },
-    'task-2': {
-      id: 'task-2',
-      name: 'Practice React with TypeScript',
-      state: 'in-progress',
-    },
-    'task-3': { id: 'task-3', name: 'Study English', state: 'todo' },
-  },
-  columns: {
-    'column-1': {
-      id: 'column-1',
-      title: 'To do',
-      taskIds: ['task-3'],
-    },
-    'column-2': {
-      id: 'column-2',
-      title: 'In progress',
-      taskIds: ['task-2'],
-    },
-    'column-3': {
-      id: 'column-3',
-      title: 'Done',
-      taskIds: ['task-1'],
-    },
-  },
-  columnsOrder: ['column-1', 'column-2', 'column-3'],
-};
-
 function App() {
   const [tasksData, setTasksData] = useState<TasksData>(initialTasksData);
 
-  const onDragEnd = (result: DropResult) => {
+  const onDragEnd = (result: DropResult): void => {
     const { destination, source, draggableId } = result;
     if (!destination) {
       return;
@@ -108,6 +79,11 @@ function App() {
       });
     }
   };
+
+  // const addTask = () => {
+
+  // };
+
   return (
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>

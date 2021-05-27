@@ -1,9 +1,6 @@
-type State = 'todo' | 'in-progress' | 'done';
-
 type Task = {
   id: string;
   name: string;
-  state: State;
 };
 
 type Tasks = {
