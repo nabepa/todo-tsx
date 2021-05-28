@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   Droppable,
   DroppableProvided,
@@ -46,38 +46,35 @@ type Props = {
   removeTask: RemoveTask;
 };
 
-const TaskColumn: React.FC<Props> = ({
-  column,
-  tasks,
-  addTask,
-  removeTask,
-}) => {
-  return (
-    <Container>
-      <Title>{column.title}</Title>
-      <Droppable droppableId={column.id}>
-        {(provided: DroppableProvided, snapshot: DroppableStateSnapshot) => (
-          <TaskList
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-            data-is-dragging-over={snapshot.isDraggingOver}
-          >
-            {tasks.map((task, index) => (
-              <TaskItem
-                key={task.id}
-                columnId={column.id}
-                task={task}
-                index={index}
-                removeTask={removeTask}
-              />
-            ))}
-            {provided.placeholder}
-          </TaskList>
-        )}
-      </Droppable>
-      <AddForm columnId={column.id} addTask={addTask} />
-    </Container>
-  );
-};
+const TaskColumn: React.FC<Props> = memo(
+  ({ column, tasks, addTask, removeTask }) => {
+    return (
+      <Container>
+        <Title>{column.title}</Title>
+        <Droppable droppableId={column.id}>
+          {(provided: DroppableProvided, snapshot: DroppableStateSnapshot) => (
+            <TaskList
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              data-is-dragging-over={snapshot.isDraggingOver}
+            >
+              {tasks.map((task, index) => (
+                <TaskItem
+                  key={task.id}
+                  columnId={column.id}
+                  task={task}
+                  index={index}
+                  removeTask={removeTask}
+                />
+              ))}
+              {provided.placeholder}
+            </TaskList>
+          )}
+        </Droppable>
+        <AddForm columnId={column.id} addTask={addTask} />
+      </Container>
+    );
+  }
+);
 
 export default TaskColumn;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   Draggable,
   DraggableProvided,
@@ -29,25 +29,27 @@ type Props = {
   removeTask: RemoveTask;
 };
 
-const TaskItem: React.FC<Props> = ({ columnId, task, index, removeTask }) => {
-  const onClick = () => {
-    removeTask(columnId, task, index);
-  };
-  return (
-    <Draggable draggableId={task.id} index={index}>
-      {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
-        <Item
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          data-is-dragging={snapshot.isDragging}
-        >
-          <p>{task.name}</p>
-          <DeleteOutlinedIcon onClick={onClick} />
-        </Item>
-      )}
-    </Draggable>
-  );
-};
+const TaskItem: React.FC<Props> = memo(
+  ({ columnId, task, index, removeTask }) => {
+    const onClick = () => {
+      removeTask(columnId, task, index);
+    };
+    return (
+      <Draggable draggableId={task.id} index={index}>
+        {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
+          <Item
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            data-is-dragging={snapshot.isDragging}
+          >
+            <p>{task.name}</p>
+            <DeleteOutlinedIcon onClick={onClick} />
+          </Item>
+        )}
+      </Draggable>
+    );
+  }
+);
 
 export default TaskItem;

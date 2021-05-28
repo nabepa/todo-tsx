@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import '@atlaskit/css-reset';
 import styled from 'styled-components';
@@ -81,7 +81,7 @@ function App() {
     }
   };
 
-  const addTask: AddTask = (columnId: ColumnId, task: Task) => {
+  const addTask: AddTask = useCallback((columnId: ColumnId, task: Task) => {
     setTasksData((prevTasksData) => {
       const newTasks: Tasks = { ...prevTasksData.tasks, [task.id]: task };
 
@@ -106,39 +106,40 @@ function App() {
 
       return newTaskDatas;
     });
-  };
+  }, []);
 
-  const removeTask: RemoveTask = (
-    columnId: ColumnId,
-    task: Task,
-    index: number
-  ) => {
-    setTasksData((prevTasksData) => {
-      const newTasks: Tasks = { ...prevTasksData.tasks };
-      delete newTasks[task.id];
+  const removeTask: RemoveTask = useCallback(
+    (columnId: ColumnId, task: Task, index: number) => {
+      setTasksData((prevTasksData) => {
+        const newTasks: Tasks = { ...prevTasksData.tasks };
+        delete newTasks[task.id];
 
-      const newTaskIds: TaskId[] = [...prevTasksData.columns[columnId].taskIds];
-      newTaskIds.splice(index, 1);
+        const newTaskIds: TaskId[] = [
+          ...prevTasksData.columns[columnId].taskIds,
+        ];
+        newTaskIds.splice(index, 1);
 
-      const newColumn: Column = {
-        ...prevTasksData.columns[columnId],
-        taskIds: newTaskIds,
-      };
+        const newColumn: Column = {
+          ...prevTasksData.columns[columnId],
+          taskIds: newTaskIds,
+        };
 
-      const newColumns: Columns = {
-        ...prevTasksData.columns,
-        [columnId]: newColumn,
-      };
+        const newColumns: Columns = {
+          ...prevTasksData.columns,
+          [columnId]: newColumn,
+        };
 
-      const newTaskDatas: TasksData = {
-        ...prevTasksData,
-        tasks: newTasks,
-        columns: newColumns,
-      };
+        const newTaskDatas: TasksData = {
+          ...prevTasksData,
+          tasks: newTasks,
+          columns: newColumns,
+        };
 
-      return newTaskDatas;
-    });
-  };
+        return newTaskDatas;
+      });
+    },
+    []
+  );
 
   return (
     <Container>
