@@ -1,17 +1,24 @@
 import React from 'react';
-import { Draggable } from 'react-beautiful-dnd';
+import {
+  Draggable,
+  DraggableProvided,
+  DraggableStateSnapshot,
+} from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
-const Item = styled.li`
+type ItemStyle = {
+  'data-is-dragging': boolean;
+};
+const Item = styled.li<ItemStyle>`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0.3rem;
+  margin: 0.3rem 0;
   font-size: 1rem;
   font-weight: 700;
-  background-color: white;
+  color: ${(props) => (props['data-is-dragging'] ? '#fad301' : '#000')};
 `;
 
 type Props = {
@@ -28,11 +35,12 @@ const TaskItem: React.FC<Props> = ({ columnId, task, index, removeTask }) => {
   };
   return (
     <Draggable draggableId={task.id} index={index}>
-      {(provided) => (
+      {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
         <Item
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          data-is-dragging={snapshot.isDragging}
         >
           <p>{task.name}</p>
           <DeleteOutlinedIcon onClick={onClick} />
