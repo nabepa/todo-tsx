@@ -11,7 +11,7 @@ You can try this app, click below badge!
 
 ## 🚀 開発背景
 
-- TypeScript & React の練習で，Drag&Drop の可能な簡単な Todo List App を作ろう！
+- TypeScript & React の練習で，Drag&Drop でリストの順序を変えれる簡単な Todo List App を作ろう！
 - styled-component を使ってみる
 
 ## 🦄 使用言語とツール
@@ -72,7 +72,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   delete newTasks[task.id];
   ```
 
-  task&#46;id の値を指定する際に，TaskId 型にしても結局は string 型なので，newTasks にしては key として"なぜ TaskId ではなく string をくれてるの？"ってなる．
+  task&#46;id の値を指定する際に，TaskId 型にしても結局は string 型なので，newTasks は "なぜ key として TaskId ではなく string をくれてるの？"ってなる．
 
   そこで，utility type の Record を利用
 
