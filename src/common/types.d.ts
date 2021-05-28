@@ -26,6 +26,3 @@ type TasksData = {
 type AddTask = (columnId: ColumnId, task: Task) => void;
 
 type RemoveTask = (columnId: ColumnId, task: Task, index: number) => void;
-// type ToggleTodo = (selectedTodo: Todo) => void;
-
-// type AddTodo = (text: string) => void;
