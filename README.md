@@ -46,7 +46,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - Class componet では createRef(), Hooks では useRef()
 - 状況に応じて適切な方を選択
   - このプロジェクトで新しいタスクを追加する際には，入力と同時に値を更新するとむしろ必要のない re-rendering
-- <a href='https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/'> 一緒に読むといい資料</a>
+- [&#32;一緒に読むといい資料](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/)
 
 ### Record
 
