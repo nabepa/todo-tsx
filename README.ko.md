@@ -90,3 +90,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   ```
 
   즉，task&#46;id가 string으로서 들어와도 정상적으로 작동
+
+## 🤩 추가로 공부할 것
+
+- [Custom Hooks](https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook)으로 App의 Drag 부분 추출
+- Props와 State로 type? interface? → [参考](https://dev.to/reyronald/typescript-types-or-interfaces-for-react-component-props-1408)

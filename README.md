@@ -89,3 +89,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   ```
 
   つまり，task&#46;id が string として入っても通るようになる．
+
+## 🤩 もっと勉強して見ること
+
+- [Custom Hooks](https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook)で App の Drag 部分抽出
+- Props と State として type? interface? → [参考](https://dev.to/reyronald/typescript-types-or-interfaces-for-react-component-props-1408)
