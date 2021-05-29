@@ -11,7 +11,7 @@ You can try this app, click below badge!
 
 ## 🚀 개발 배경
 
-- TypeScript & React 연습ㅇ로，Drag&Drop으로 리스트 순서를 바꿀 수 있는 간단한 Todo List App 를 만들자!
+- TypeScript & React 연습으로，Drag&Drop으로 리스트 순서를 바꿀 수 있는 간단한 Todo List App 를 만들자!
 - styled-component 를 사용해 보자.
 
 ## 🦄 使用言語とツール
@@ -46,8 +46,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - Class componet에서는 createRef(), Hooks에서는 useRef()
 - 상황에 맞게 적절한 쪽을 선택
   - 이 프로젝트에서 새로운 할 일을 추가할 때, 입력과 동시에 state를 갱신하면 오히려 불필요한 re-rendering을 하게 됨
-- [같이 읽으면 좋은 자료1](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/)
-- [같이 읽으면 좋은 자료2](https://velog.io/@yukyung/React-%EC%A0%9C%EC%96%B4-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%99%80-%EB%B9%84%EC%A0%9C%EC%96%B4-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0)
+- <a href='https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/'>같이 읽으면 좋은 자료1</a>
+- <a href='https://velog.io/@yukyung/React-%EC%A0%9C%EC%96%B4-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%99%80-%EB%B9%84%EC%A0%9C%EC%96%B4-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0'>같이 읽으면 좋은 자료2</a>
 
 ### Record
 
